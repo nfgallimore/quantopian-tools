@@ -1,0 +1,13 @@
+mock
+pep8
+pylint
+pytest
+pytest-cov
+semantic-version
+validators
+wheel
+
+sphinx
+sphinx_rtd_theme
+
+-r install-py3.txt

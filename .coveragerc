@@ -1,0 +1,16 @@
+[run]
+branch = True
+data_file = tests/reports/.coverage
+omit =
+    */migrations/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    raise NotImplementedError
+
+[html]
+directory = tests/reports/htmlcov
+
+[xml]
+output = tests/reports/coverage.xml

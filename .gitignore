@@ -1,0 +1,18 @@
+# Compiled Python files
+*.pyc
+
+# PyCharm
+/.idea/
+
+# Distribution / packaging
+/build/
+/dist/
+*.egg-info/
+
+# Unit test / coverage reports
+/tests/reports/
+/.cache/
+
+# Sphinx
+/docs/_build/
+/docs/api.rst
