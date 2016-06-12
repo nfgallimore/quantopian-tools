@@ -30,21 +30,15 @@ all: init install lint test build docs
 
 init:
 	pip install -i $(PIP_INDEX_URL) -U setuptools
-	pip install -i $(PIP_INDEX_URL) -U 'pip<8.1.2'
+	pip install -i $(PIP_INDEX_URL) -U 'pip==8.1.1'
 	pip install -i $(PIP_INDEX_URL) -U pip-tools
-
-install: .cache/requirements-py$(python_version_major).txt
-	pip-sync -i $(PIP_INDEX_URL) .cache/requirements-py$(python_version_major).txt
 
 pip_compile = pip-compile -i $(PIP_INDEX_URL) --upgrade --rebuild --annotate --header --no-index $(pip_compile_flags)
 
-.cache/requirements-py2.txt: requirements/py2.txt
+install:
 	mkdir -p .cache
-	$(pip_compile) requirements/py2.txt -o .cache/requirements-py2.txt > /dev/null
-
-.cache/requirements-py3.txt: requirements/py3.txt
-	mkdir -p .cache
-	$(pip_compile) requirements/py3.txt -o .cache/requirements-py3.txt > /dev/null
+	$(pip_compile) requirements/py$(python_version_major).txt -o .cache/requirements-py$(python_version_major).txt > /dev/null
+	pip-sync -i $(PIP_INDEX_URL) .cache/requirements-py$(python_version_major).txt
 
 pytest_args := -v -l$(foreach dir,$(python_source_dirs), --ignore="$(dir)/migrations/")
 pytest_cov := $(foreach dir,$(python_source_dirs), --cov="$(dir)") --cov-report=term-missing --cov-report=html --cov-report=xml --no-cov-on-fail

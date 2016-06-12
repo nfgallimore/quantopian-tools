@@ -50,6 +50,12 @@ For full API usage documentation, refer to the `API <api.html>`__
 v0.1.0 - 05/30/2016
 ~~~~~~~~~~~~~~~~~~~
 
+-  Fixed Makefile install target so it rebuilds the compiled requirements everytime it is run.
+-  Removed temporary requirement in requirements/install-py2.txt
+
+v0.1.0 - 05/30/2016
+~~~~~~~~~~~~~~~~~~~
+
 -  Initial release
 
 |
