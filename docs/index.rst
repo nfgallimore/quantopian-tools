@@ -46,14 +46,18 @@ Scripts
 
 For full API usage documentation, refer to the `API <api.html>`__
 
+v0.0.3 - 07/07/2016
+~~~~~~~~~~~~~~~~~~~
 
-v0.1.0 - 05/30/2016
+-  Unpinned pip now that pip-compile works with 8.1.2
+
+v0.0.2 - 06/12/2016
 ~~~~~~~~~~~~~~~~~~~
 
 -  Fixed Makefile install target so it rebuilds the compiled requirements everytime it is run.
 -  Removed temporary requirement in requirements/install-py2.txt
 
-v0.1.0 - 05/30/2016
+v0.0.1 - 05/30/2016
 ~~~~~~~~~~~~~~~~~~~
 
 -  Initial release

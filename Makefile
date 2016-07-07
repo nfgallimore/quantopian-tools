@@ -30,7 +30,7 @@ all: init install lint test build docs
 
 init:
 	pip install -i $(PIP_INDEX_URL) -U setuptools
-	pip install -i $(PIP_INDEX_URL) -U 'pip==8.1.1'
+	pip install -i $(PIP_INDEX_URL) -U pip
 	pip install -i $(PIP_INDEX_URL) -U pip-tools
 
 pip_compile = pip-compile -i $(PIP_INDEX_URL) --upgrade --rebuild --annotate --header --no-index $(pip_compile_flags)
