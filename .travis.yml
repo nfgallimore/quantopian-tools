@@ -17,12 +17,13 @@ script:
 cache: pip
 after_success:
   - codecov --required --file tests/reports/coverage.xml
-#deploy:
-#  provider: pypi
-#  user: 20miller10
-#  password:
-#    secure: R6SuIdBZTwG3Y+uqDTHE7GYRN2HDF8agu1rmT5BVfYbK/p/hZoZFo+gZax9mrUFDe40Yk4XEQxripXya32NjkvF41A8h4E16sSTSxVAlA/56DSusG0zdbnAv+VIi0H4lUn3NueK8EU7GZOmLviR+PyfLfyaYSrqJpC8MJ3RoHOnDw9V8+X29+f83F+enlCDJmzhO3UXAMQKjKZPaKaysd8rQ1TXOKDQg8dYeBaCenmv7Sju1ltD3nM6LwNjJcDlDyq+wYu90/THxXsIAXdYJM3Hvc8HClm6wEv8E8DRHDJWx2cOl13X21PU1XtMrRm+j4EnovaayYMcH2AqFWVSgZrkYx9/SnMzcKqAbR6ycWgGn59zOePzEkG54vA250KNtquylsaH3e+eNsJ8wUNlMA1QtpCiIG43R9oo3pfCmkGTl7DuHDpOcErR3JD5u+5AS2IPqgxcJOuE53fH+QWCz1cY1kACM//S09telXw11WfesutkNZ3ikpYLdZ3FaKi33iSOFm2bvGYiXL4qmX4bGpN5uOjBsWo3wQGUGWtEweCsHZ57l+DKqj58JXjJopkFIZQXrPsQtLIJioWXGWWyjISwSOaPOfdM/VKirXYllf8jGhOeLGWkFTM3GelUlfVT0ORUMjEWz5NGE75Qhp1yeYsqkrCWCWunH38c3EvjMmxI=
-#  on:
-#    tags: true
-#    distributions: sdist bdist_wheel
-#    repo: derek-miller/quantopian-api
+deploy:
+  provider: pypi
+  user: 20miller10
+  password:
+    secure: R6SuIdBZTwG3Y+uqDTHE7GYRN2HDF8agu1rmT5BVfYbK/p/hZoZFo+gZax9mrUFDe40Yk4XEQxripXya32NjkvF41A8h4E16sSTSxVAlA/56DSusG0zdbnAv+VIi0H4lUn3NueK8EU7GZOmLviR+PyfLfyaYSrqJpC8MJ3RoHOnDw9V8+X29+f83F+enlCDJmzhO3UXAMQKjKZPaKaysd8rQ1TXOKDQg8dYeBaCenmv7Sju1ltD3nM6LwNjJcDlDyq+wYu90/THxXsIAXdYJM3Hvc8HClm6wEv8E8DRHDJWx2cOl13X21PU1XtMrRm+j4EnovaayYMcH2AqFWVSgZrkYx9/SnMzcKqAbR6ycWgGn59zOePzEkG54vA250KNtquylsaH3e+eNsJ8wUNlMA1QtpCiIG43R9oo3pfCmkGTl7DuHDpOcErR3JD5u+5AS2IPqgxcJOuE53fH+QWCz1cY1kACM//S09telXw11WfesutkNZ3ikpYLdZ3FaKi33iSOFm2bvGYiXL4qmX4bGpN5uOjBsWo3wQGUGWtEweCsHZ57l+DKqj58JXjJopkFIZQXrPsQtLIJioWXGWWyjISwSOaPOfdM/VKirXYllf8jGhOeLGWkFTM3GelUlfVT0ORUMjEWz5NGE75Qhp1yeYsqkrCWCWunH38c3EvjMmxI=
+  on:
+    branch: master
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: derek-miller/quantopian-api
