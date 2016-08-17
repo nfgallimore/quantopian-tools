@@ -1,7 +1,7 @@
 # Quantopian API
 
 [![Build Status](https://img.shields.io/travis/derek-miller/quantopian-api.svg)](https://travis-ci.org/derek-miller/quantopian-api)
-[![Docs Status](https://readthedocs.org/projects/quantopian-api2/badge/?version=latest)](http://quantopian-api2.readthedocs.io/en/latest/?badge=latest)
+[![Docs Status](https://readthedocs.org/projects/quantopian-api/badge/?version=latest)](http://quantopian-api.readthedocs.io/en/latest/?badge=latest)
 [![GitHub release](https://img.shields.io/pypi/v/quantopian-api.svg)](https://pypi.python.org/pypi/quantopian-api/)
 [![Requires.io](https://img.shields.io/requires/github/derek-miller/quantopian-api.svg)](https://requires.io/github/derek-miller/quantopian-api/requirements/?branch=master)
 [![Codecov](https://img.shields.io/codecov/c/github/derek-miller/quantopian-api.svg)](https://codecov.io/gh/derek-miller/quantopian-api)
