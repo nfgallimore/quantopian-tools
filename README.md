@@ -2,11 +2,14 @@
 
 [![Build Status](https://img.shields.io/travis/derek-miller/quantopian-api.svg)](https://travis-ci.org/derek-miller/quantopian-api)
 [![Docs Status](https://readthedocs.org/projects/quantopian-api/badge/?version=latest)](http://quantopian-api.readthedocs.io/en/latest/?badge=latest)
-[![GitHub release](https://img.shields.io/pypi/v/quantopian-api.svg)](https://pypi.python.org/pypi/quantopian-api/)
+[![PyPi Version](https://img.shields.io/pypi/v/quantopian.svg)](https://pypi.python.org/pypi/quantopian/)
+[![GitHub release](https://img.shields.io/github/release/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/releases)
 [![Requires.io](https://img.shields.io/requires/github/derek-miller/quantopian-api.svg)](https://requires.io/github/derek-miller/quantopian-api/requirements/?branch=master)
 [![Codecov](https://img.shields.io/codecov/c/github/derek-miller/quantopian-api.svg)](https://codecov.io/gh/derek-miller/quantopian-api)
 [![GitHub issues](https://img.shields.io/github/issues/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/issues)
 [![license](https://img.shields.io/github/license/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/pypi/dm/quantopian.svg)]()
+
 
 ***
 
