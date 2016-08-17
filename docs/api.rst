@@ -1,10 +1,10 @@
 API
 ===
 
-python_template
----------------
+quantopian
+----------
 
-.. automodule:: python_template
+.. automodule:: quantopian
 
     .. autodata:: __author__
 

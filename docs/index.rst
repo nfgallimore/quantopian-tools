@@ -1,18 +1,17 @@
-Python Library Template Documentation
-=====================================
+Quantopian API Documentation
+============================
 
 |build_badge| |doc_badge| |pypi_badge| |requires_badge| |coverage_badge| |issues_badge| |license_badge|
 
-
-Python library template project.
-
+THIS IS ALPHA STATUS CODE AND IS NOT PRODUCTION READY.
+------------------------------------------------------
 
 Installation
 ------------
 
 .. code:: bash
 
-    pip install python-template
+    pip install quantopian-api
 
 
 Or to manually install, execute the following commands:
@@ -20,8 +19,8 @@ Or to manually install, execute the following commands:
 
 .. code:: bash
 
-    git clone https://github.com/derek-miller/python-template.git
-    cd python-template/
+    git clone https://github.com/derek-miller/quantopian-api.git
+    cd quantopian-api/
     python setup.py install
 
 
@@ -46,19 +45,8 @@ Scripts
 
 For full API usage documentation, refer to the `API <api.html>`__
 
-v0.0.3 - 07/07/2016
-~~~~~~~~~~~~~~~~~~~
-
--  Unpinned pip now that pip-compile works with 8.1.2
-
-v0.0.2 - 06/12/2016
-~~~~~~~~~~~~~~~~~~~
-
--  Fixed Makefile install target so it rebuilds the compiled requirements everytime it is run.
--  Removed temporary requirement in requirements/install-py2.txt
-
-v0.0.1 - 05/30/2016
-~~~~~~~~~~~~~~~~~~~
+v0.0.1 - TBD
+~~~~~~~~~~~~
 
 -  Initial release
 
@@ -80,30 +68,30 @@ Site Map
     api
 
 
-.. |build_badge| image:: https://img.shields.io/travis/derek-miller/python-template.svg
+.. |build_badge| image:: https://img.shields.io/travis/derek-miller/quantopian-api.svg
     :alt: Build Status
-    :target: https://travis-ci.org/derek-miller/python-template
+    :target: https://travis-ci.org/derek-miller/quantopian-api
 
-.. |doc_badge| image:: https://readthedocs.org/projects/python-template2/badge/?version=latest
+.. |doc_badge| image:: https://readthedocs.org/projects/quantopian-api/badge/?version=latest
    :alt: Documentation Status
-   :target: http://python-template2.readthedocs.io/en/latest/?badge=latest
+   :target: http://quantopian-api.readthedocs.io/en/latest/?badge=latest
 
-.. |pypi_badge| image:: https://img.shields.io/pypi/v/python-template.svg
+.. |pypi_badge| image:: https://img.shields.io/pypi/v/quantopian-api.svg
     :alt: PyPi Status
-    :target: https://pypi.python.org/pypi/python-template/
+    :target: https://pypi.python.org/pypi/quantopian-api/
 
-.. |requires_badge| image:: https://img.shields.io/requires/github/derek-miller/python-template.svg
+.. |requires_badge| image:: https://img.shields.io/requires/github/derek-miller/quantopian-api.svg
     :alt: Requires.io
-    :target: https://requires.io/github/derek-miller/python-template/requirements/?branch=master
+    :target: https://requires.io/github/derek-miller/quantopian-api/requirements/?branch=master
 
-.. |coverage_badge| image:: https://img.shields.io/codecov/c/github/derek-miller/python-template.svg
+.. |coverage_badge| image:: https://img.shields.io/codecov/c/github/derek-miller/quantopian-api.svg
     :alt: Test Coverage
-    :target: https://codecov.io/gh/derek-miller/python-template
+    :target: https://codecov.io/gh/derek-miller/quantopian-api
 
-.. |issues_badge| image:: https://img.shields.io/github/issues/derek-miller/python-template.svg
+.. |issues_badge| image:: https://img.shields.io/github/issues/derek-miller/quantopian-api.svg
     :alt: GitHub Issues
-    :target: https://github.com/derek-miller/python-template/issues
+    :target: https://github.com/derek-miller/quantopian-api/issues
 
-.. |license_badge| image:: https://img.shields.io/github/license/derek-miller/python-template.svg
+.. |license_badge| image:: https://img.shields.io/github/license/derek-miller/quantopian-api.svg
     :alt: License
-    :target: https://github.com/derek-miller/python-template/blob/master/LICENSE
+    :target: https://github.com/derek-miller/quantopian-api/blob/master/LICENSE

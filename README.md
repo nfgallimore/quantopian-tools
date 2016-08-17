@@ -1,25 +1,27 @@
-# python-template
-[![Build Status](https://img.shields.io/travis/derek-miller/python-template.svg)](https://travis-ci.org/derek-miller/python-template)
-[![Docs Status](https://readthedocs.org/projects/python-template2/badge/?version=latest)](http://python-template2.readthedocs.io/en/latest/?badge=latest)
-[![GitHub release](https://img.shields.io/pypi/v/python-template.svg)](https://pypi.python.org/pypi/python-template/)
-[![Requires.io](https://img.shields.io/requires/github/derek-miller/python-template.svg)](https://requires.io/github/derek-miller/python-template/requirements/?branch=master)
-[![Codecov](https://img.shields.io/codecov/c/github/derek-miller/python-template.svg)](https://codecov.io/gh/derek-miller/python-template)
-[![GitHub issues](https://img.shields.io/github/issues/derek-miller/python-template.svg)](https://github.com/derek-miller/python-template/issues)
-[![license](https://img.shields.io/github/license/derek-miller/python-template.svg)](https://github.com/derek-miller/python-template/blob/master/LICENSE)
+# Quantopian API
 
-Python library template project.
+[![Build Status](https://img.shields.io/travis/derek-miller/quantopian-api.svg)](https://travis-ci.org/derek-miller/quantopian-api)
+[![Docs Status](https://readthedocs.org/projects/quantopian-api2/badge/?version=latest)](http://quantopian-api2.readthedocs.io/en/latest/?badge=latest)
+[![GitHub release](https://img.shields.io/pypi/v/quantopian-api.svg)](https://pypi.python.org/pypi/quantopian-api/)
+[![Requires.io](https://img.shields.io/requires/github/derek-miller/quantopian-api.svg)](https://requires.io/github/derek-miller/quantopian-api/requirements/?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/derek-miller/quantopian-api.svg)](https://codecov.io/gh/derek-miller/quantopian-api)
+[![GitHub issues](https://img.shields.io/github/issues/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/issues)
+[![license](https://img.shields.io/github/license/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/blob/master/LICENSE)
+
 ***
+
+## THIS IS ALPHA STATUS CODE AND IS NOT PRODUCTION READY.
 
 ### Install
 
 ```bash
-pip install python-template
+pip install quantopian-api
 ```
 
 Or to manually install, execute the following commands:
 ```bash
-git clone https://github.com/derek-miller/python-template.git
-cd python-template
+git clone https://github.com/derek-miller/quantopian-api.git
+cd quantopian-api
 python setup.py install
 ```
 ***

@@ -25,4 +25,4 @@ after_success:
 #  on:
 #    tags: true
 #    distributions: sdist bdist_wheel
-#    repo: derek-miller/python-template
+#    repo: derek-miller/quantopian-api

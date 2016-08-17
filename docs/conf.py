@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Python Library Template documentation build configuration file, created by
+# Quantopian API documentation build configuration file, created by
 # sphinx-quickstart on Mon May 30 14:46:42 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -12,7 +12,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-package_name = "python_template"
+package_name = "quantopian"
 
 import os
 import sys
@@ -213,7 +213,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = 'Python Library Template v0.0.1'
+# html_title = 'Quantopian API v0.0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
