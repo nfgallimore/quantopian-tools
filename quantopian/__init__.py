@@ -7,7 +7,7 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 #: Package Name
 __pkg_name__ = 'quantopian'
 #: Version
-__version__ = '0.0.1-alpha0'  # Follow semantic versioning (http://semver.org/)
+__version__ = '0.0.1-alpha2'  # Follow semantic versioning (http://semver.org/)
 #: Release Date
 __release_date__ = '08/16/2016'
 #: License
