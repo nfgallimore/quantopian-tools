@@ -15,7 +15,7 @@ def test_valid_pkg_name():
 
 
 def test_valid_version():
-    assert semantic_version.validate(quantopian.__version__)
+    assert semantic_version.validate(str(semantic_version.Version.coerce(quantopian.__version__)))
 
 
 def test_valid_release_date():
