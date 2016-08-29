@@ -10,7 +10,7 @@ else
     egg_info_tag_build := +dev
 endif
 
-ifeq ($(VIRTUAL_ENV)$(CONDA_ENV_PATH),)
+ifeq ($(VIRTUAL_ENV)$(CONDA_DEFAULT_ENV),)
 $(error must run in a virtualenv)
 else
 $(info running in virtualenv $(VIRTUAL_ENV)$(CONDA_ENV_PATH))
