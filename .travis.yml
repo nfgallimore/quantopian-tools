@@ -1,29 +1,29 @@
 language: python
 python:
-  - 2.7
-  - 3.3
-  - 3.4
-  - 3.5
+- 2.7
+- 3.3
+- 3.4
+- 3.5
 install:
-  - make clean
-  - make init
-  - make install
-  - pip install codecov
+- make clean
+- make init
+- make install
+- pip install codecov
 script:
-  - make lint
-  - make test
-  - make build
-  - make docs
+- make lint
+- make test
+- make build
+- make docs
 cache: pip
 after_success:
-  - codecov --required --file tests/reports/coverage.xml
+- codecov --required --file tests/reports/coverage.xml
 deploy:
   provider: pypi
-  user: 20miller10
+  user: gitlitio
   password:
-    secure: NulUz7WACjHtitq3PprElzsCLblcCjOWSYt98/IQa3qeLULkTSjbPqhWVJlBaqbcjKhGaCQLELY3bqJqQJaIRGkayixW7Ckqepae5dvl7T9OV78jNITTpQG04uchD7Nw3oSP2Zu+FDewZDukOQgZAPrmLoww1uzcrrFypvMKxtdq5hr4yIDpcox7jzEDO/QopWLf6vDWX4bq2huYFkaRQRXGAtRdkugxV8RWF2Txlb8LCiaGIUZYhp/BkCPM82cb5OAasD0CmkyhKGG0ZZrgXVTgrpGVGj8b4yKfMyyafawGjFAOicOBlW3Xt/7wMWtmHcyM0HUzeMNzP9CDRqVIZf0SK1PyL4oqb+ERzMlJRIEkht0wk5vZ/2JRVZ32xVQn7hGlvt57LcI2A8EtSLNsbJkmVuevbWfRSgmQq9lqB+QDfZHOjNF/elEm4KMPN5FDaFlJZVVYYBJfsn+9/ftbCATXr7tzt0bnE1WWaaobZDYp7dUO16oCu3cRUpAFnRBykhkjuNWvauLFUFjskckx59Sm7RxM21ksCdYC2pgaOryJqIekvyISwzQcB/Opioj6LZMOHjEdhrwwPfseA9qd78gxvtZbcRGhbAiI8vtMp9ZV20yW3OuWSXyFzU7KrBc9+x7Qmyez2qnNTEcyxJQox96nMmRHCzJuMzIg0LNi8YA=
+    secure: mTfSD8oQeg+W+CNX3JJp+yqbrtoNLG+yX+q2sB1DNwgSuc4i4joWdkjakR186AteqOdJuDYc2eT59mwnrRS1Bqhcb8+r+QRIAr2jH8lOMixfTROJTBmuPyni6OgtYae0NPVcNfe/bKjFw44+giuhU1whO9B0t0NdZwu3GOp0bHOXSX/opGjBZucSe3WC8DJARFc+S6xZrU0tgXJNh77N+rk9VavvlLmsDAVgUx/4BpJnEyLJ8+SvCqm3ShtoYgvymCVGRjbzDbJVe+tuWhkUshzspj/Z0QqvSQ7jxGrJsKe3tQh03x8gtWt56kzLxqBx3wuvqa75FWzb0b0sitjFoghDQ4foUcJcfeAkC3bT+kWYXLEJnKoGBpNFA5GIeaxyNZZZvdhxLhPfofZx1bhxtoFgRFKDbCyjq/0dzc/Wl/u+P/SHbMy1Zqffx2dIq53M8hzgYYBsADAUbhnG2MMZC1ngWOsffBtBVJk5/fpZ7cDmq3xOqz1pmsk02jZRneJ9NFJSrfrdfAH6/ErP/B0WrRxWOa687Tj0LEdo0f53Bw+AHnEeAtoIZLZE17tvuRcRLYF5W/mGlYA57VHPH0V7QjAIq6bzbnqF2r5nAyanE/Cb5FrwaSfyb6XXw4ePkAUr8qTbFA0ugTmsxYMrleFMm6s5oZEvoQ0zixSeItYJfLs=
   on:
     python: 2.7
     tags: true
     distributions: sdist bdist_wheel
-    repo: derek-miller/quantopian-api
+    repo: Gitlitio/quantopian-api

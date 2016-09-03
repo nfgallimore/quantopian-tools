@@ -1,7 +1,7 @@
 Quantopian API Documentation
 ============================
 
-|build| |docs| |pypi| |github_release| |requires| |coverage| |issues| |license| |downloads|
+|build| |docs| |pypi| |downloads| |github_release| |requirements| |coverage| |issues| |license|
 
 THIS IS ALPHA STATUS CODE AND IS NOT PRODUCTION READY.
 ------------------------------------------------------
@@ -11,7 +11,7 @@ Installation
 
 .. code:: bash
 
-    pip install quantopian-api
+    pip install quantopian
 
 
 Or to manually install, execute the following commands:
@@ -19,7 +19,7 @@ Or to manually install, execute the following commands:
 
 .. code:: bash
 
-    git clone https://github.com/derek-miller/quantopian-api.git
+    git clone https://github.com/Gitlitio/quantopian-api.git
     cd quantopian-api/
     python setup.py install
 
@@ -68,37 +68,38 @@ Site Map
     api
 
 
-.. |build| image:: https://img.shields.io/travis/derek-miller/quantopian-api.svg
-    :alt: Build Status
-    :target: https://travis-ci.org/derek-miller/quantopian-api
+.. |build| image:: https://img.shields.io/travis/Gitlitio/quantopian-api.svg
+   :alt: Build Status
+   :target: https://travis-ci.org/Gitlitio/quantopian-api
 
 .. |docs| image:: https://readthedocs.org/projects/quantopian-api/badge/?version=latest
    :alt: Documentation Status
    :target: http://quantopian-api.readthedocs.io/en/latest/?badge=latest
 
 .. |pypi| image:: https://img.shields.io/pypi/v/quantopian.svg
-    :alt: PyPi Status
-    :target: https://pypi.python.org/pypi/quantopian/
+   :alt: PyPi Version
+   :target: https://pypi.python.org/pypi/quantopian/
 
-.. |requires| image:: https://img.shields.io/requires/github/derek-miller/quantopian-api.svg
-    :alt: Requires.io
-    :target: https://requires.io/github/derek-miller/quantopian-api/requirements/?branch=master
+.. |requirements| image:: https://img.shields.io/requires/github/Gitlitio/quantopian-api.svg
+   :alt: Requires.io
+   :target: https://requires.io/github/Gitlitio/quantopian-api/requirements/?branch=master
 
-.. |coverage| image:: https://img.shields.io/codecov/c/github/derek-miller/quantopian-api.svg
-    :alt: Test Coverage
-    :target: https://codecov.io/gh/derek-miller/quantopian-api
+.. |coverage| image:: https://img.shields.io/codecov/c/github/Gitlitio/quantopian-api.svg
+   :alt: Codecov.io
+   :target: https://codecov.io/gh/Gitlitio/quantopian-api
 
-.. |github_release| image:: https://img.shields.io/github/release/derek-miller/quantopian-api.svg
-    :alt: GitHub Release
-    :target: https://github.com/derek-miller/quantopian-api/releases
+.. |github_release| image:: https://img.shields.io/github/release/Gitlitio/quantopian-api.svg
+   :alt: Github Releases
+   :target: https://github.com/Gitlitio/quantopian-api/releases
 
-.. |issues| image:: https://img.shields.io/github/issues/derek-miller/quantopian-api.svg
-    :alt: GitHub Issues
-    :target: https://github.com/derek-miller/quantopian-api/issues
+.. |issues| image:: https://img.shields.io/github/issues/Gitlitio/quantopian-api.svg
+   :alt: Github Issues
+   :target: https://github.com/Gitlitio/quantopian-api/issues
 
-.. |license| image:: https://img.shields.io/github/license/derek-miller/quantopian-api.svg
-    :alt: License
-    :target: https://github.com/derek-miller/quantopian-api/blob/master/LICENSE
+.. |license| image:: https://img.shields.io/github/license/Gitlitio/quantopian-api.svg
+   :alt: License
+   :target: https://github.com/Gitlitio/quantopian-api/blob/master/LICENSE
 
 .. |downloads| image:: https://img.shields.io/pypi/dm/quantopian.svg
-    :alt: Downloads
+   :alt: PyPi Downloads
+   :target: https://pypi.python.org/pypi/quantopian/

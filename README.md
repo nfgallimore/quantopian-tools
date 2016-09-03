@@ -1,14 +1,14 @@
 # Quantopian API
 
-[![Build Status](https://img.shields.io/travis/derek-miller/quantopian-api.svg)](https://travis-ci.org/derek-miller/quantopian-api)
+[![Build Status](https://img.shields.io/travis/Gitlitio/quantopian-api.svg)](https://travis-ci.org/Gitlitio/quantopian-api)
 [![Docs Status](https://readthedocs.org/projects/quantopian-api/badge/?version=latest)](http://quantopian-api.readthedocs.io/en/latest/?badge=latest)
 [![PyPi Version](https://img.shields.io/pypi/v/quantopian.svg)](https://pypi.python.org/pypi/quantopian/)
-[![GitHub release](https://img.shields.io/github/release/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/releases)
-[![Requires.io](https://img.shields.io/requires/github/derek-miller/quantopian-api.svg)](https://requires.io/github/derek-miller/quantopian-api/requirements/?branch=master)
-[![Codecov](https://img.shields.io/codecov/c/github/derek-miller/quantopian-api.svg)](https://codecov.io/gh/derek-miller/quantopian-api)
-[![GitHub issues](https://img.shields.io/github/issues/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/issues)
-[![license](https://img.shields.io/github/license/derek-miller/quantopian-api.svg)](https://github.com/derek-miller/quantopian-api/blob/master/LICENSE)
-[![Downloads](https://img.shields.io/pypi/dm/quantopian.svg)]()
+[![Downloads](https://img.shields.io/pypi/dm/quantopian.svg)](https://pypi.python.org/pypi/quantopian/)
+[![GitHub release](https://img.shields.io/github/release/Gitlitio/quantopian-api.svg)](https://github.com/Gitlitio/quantopian-api/releases)
+[![Requires.io](https://img.shields.io/requires/github/Gitlitio/quantopian-api.svg)](https://requires.io/github/Gitlitio/quantopian-api/requirements/?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/Gitlitio/quantopian-api.svg)](https://codecov.io/gh/Gitlitio/quantopian-api)
+[![GitHub issues](https://img.shields.io/github/issues/Gitlitio/quantopian-api.svg)](https://github.com/Gitlitio/quantopian-api/issues)
+[![license](https://img.shields.io/github/license/Gitlitio/quantopian-api.svg)](https://github.com/Gitlitio/quantopian-api/blob/master/LICENSE)
 
 
 ***
@@ -18,16 +18,21 @@
 ### Install
 
 ```bash
-pip install quantopian-api
+pip install quantopian
 ```
 
 Or to manually install, execute the following commands:
 ```bash
-git clone https://github.com/derek-miller/quantopian-api.git
+git clone https://github.com/Gitlitio/quantopian-api.git
 cd quantopian-api
 python setup.py install
 ```
 ***
+
+## Documentation
+
+Check out our documentation on [readthedocs](http://quantopian-api.readthedocs.io/en/latest/).
+
 
 ## Developers
 
