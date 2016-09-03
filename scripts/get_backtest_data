@@ -1,0 +1,148 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __future__ import print_function, absolute_import, division
+
+import datetime
+import json
+from contextlib import contextmanager
+
+import click
+import six
+
+from quantopian.algorithms import new_algorithm, save_algorithm, delete_algorithm
+from quantopian.backtests import run_backtest
+from quantopian.securities import lookup_sid
+
+WIDTH = 80
+
+algorithm_template = """
+def initialize(context):
+    context.security = sid({sid})
+
+def before_trading_start(context, data):
+    info = data.history(context.security, ['price', 'open', 'high', 'low', 'close', 'volume'], 1, '1d')
+    record(volume=info['volume'][0],
+           open=info['open'][0],
+           close=info['close'][0],
+           high=info['high'][0],
+           low=info['low'][0])
+"""
+
+
+class TradingDayParamType(click.ParamType):
+    name = 'date'
+
+    def convert(self, value, param, ctx):
+        if isinstance(value, six.string_types):
+            value = datetime.datetime.strptime(value, '%m/%d/%Y').date()
+        return value
+
+    def __repr__(self):
+        return 'STRING'
+
+
+class DateEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, datetime.date):
+            return o.isoformat()
+        return json.JSONEncoder.default(self, o)
+
+
+@contextmanager
+def action_status(msg):
+    click.echo(msg.ljust(WIDTH, '.'), nl=False)
+    try:
+        yield
+    except:
+        click.secho(' ERROR', fg='red')
+        raise
+    click.secho(' SUCCESS', fg='green')
+
+
+def weekdays_between(start, end):
+    return sum([1 for daydelta in range(1, (end - start).days + 1)
+                if (start + datetime.timedelta(daydelta)).weekday() < 5])
+
+
+def get_security(sid):
+    with action_status("Looking up security id {}".format(sid)):
+        security = lookup_sid(sid)
+        if not security:
+            raise ValueError("Unable to find a security with sid={}".format(sid))
+        return security
+
+
+def create_temp_algorithm(security, start_date, end_date):
+    title = 'TEMP: {} Backtest Data ({}-{})'.format(security.symbol, start_date, end_date)
+
+    with action_status("Creating temporary algorithm"):
+        algorithm_id = new_algorithm(title)
+        return {
+            'id': algorithm_id,
+            'title': title
+        }
+
+
+def delete_temp_algorithm(algrithm):
+    with action_status("Deleting temp algorithm {}".format(algrithm['id'])):
+        delete_algorithm(algrithm)
+
+
+def upload_code_to_algorithm(security, algorithm):
+    with action_status("Uploading code to algorithm"):
+        algorithm['code'] = algorithm_template.format(sid=security.sid)
+        if not save_algorithm(algorithm):
+            raise RuntimeError("Failed to save algorithm code")
+        return algorithm
+
+
+def run_backtest_and_fetch_data(algorithm, start_date, end_date):
+    data = []
+    label = "Running backtest from {} to {}".format(start_date, end_date)
+    with click.progressbar(run_backtest(algorithm,
+                                        start_date=start_date,
+                                        end_date=end_date,
+                                        capital_base=1000000,
+                                        data_frequency='minute'),
+                           fill_char='.',
+                           empty_char=' ',
+                           bar_template='%(label)s%(bar)s %(info)s',
+                           label=label,
+                           width=WIDTH-len(label),
+                           info_sep=' ',
+                           show_eta=False,
+                           length=weekdays_between(start_date, end_date)) as results:
+        for result in results:
+            if 'daily_performance' not in result:
+                continue
+            custom_data = dict(result.daily_performance.custom_data)
+            custom_data['price'] = custom_data['close']
+            custom_data['date'] = result['daily_performance']['date']
+            data.append(custom_data)
+    click.echo("Retrieved {} data points".format(len(data)))
+    return data
+
+
+def save_data(data, output):
+    with action_status("Saving data"):
+        json.dump(data, output, sort_keys=True, indent=4, cls=DateEncoder)
+
+
+@click.command()
+@click.argument('sid', type=click.INT)
+@click.argument('start_date', type=TradingDayParamType())
+@click.argument('end_date', type=TradingDayParamType())
+@click.argument('output', type=click.File('w+'))
+def main(sid, start_date, end_date, output):
+    security = get_security(sid)
+    algorithm = create_temp_algorithm(security, start_date, end_date)
+    try:
+        algorithm = upload_code_to_algorithm(security, algorithm)
+        data = run_backtest_and_fetch_data(algorithm, start_date, end_date)
+        save_data(data, output)
+    finally:
+        delete_temp_algorithm(algorithm)
+
+
+if __name__ == '__main__':
+    main()

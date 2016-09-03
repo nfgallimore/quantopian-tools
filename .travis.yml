@@ -27,3 +27,6 @@ deploy:
     tags: true
     distributions: sdist bdist_wheel
     repo: Gitlitio/quantopian-api
+notifications:
+  slack:
+    secure: diHmMXE6OM8QH0l8NLSCac2B3tu/XKD8O+1kt3qTIEFiP5dr+jQnt3e5jqshC4xK7AweteKj2YhYorAFO+dTlldBCCK6w/Vt2xukp0unIIl2TlrBFHwwPYW6rQfKDQGEGpp94T+7bXQzv7+t4qquJpU5NS44CDbHOXaf3Vd1HZE7kLwg/lObdZKasIphQ/lV6Rwyc5B7TGPpbAEDjiUXtQQXpHodP57upKjyiOx/7IuFuGwBofUc0CAaXQHQgqiHXkNfCza5uKrt3HF8smpn7WuKhNG7xdrXmsntXNH+ksAtZhth7m0ThDH/DJbrB92yBPTvzy2M7ILZSG+rSR1PmdA4UNFd/orVQdHmDxCLHj6Ile97mriIIaGsXdWlr8qOZGO6g/DdxYp/gQYb3y3WoFyUIVbE9dXqf23rUm4HFxx/iS/0T0lQBNEyf7Y3sXvskj6WwEjEwqH/UNQBq1hJXNsTkEurNWrJ+unccOKpfEH82gc8kTOPdr6Px8D+OW+BWiFUG8McGXHYskhmyQI3eQlU/hxRZHB45pBxiosmksrSj8KE5klLuyqGh0f1FHpVYDjgq0eWVht1/Y80V/Q3YwuL1J80OK0zoED2GtIPdCdUAfs+0xvBE3WzJoVq9piSxsomf5nbFyNeIHryx94XchoeHuRgW/U2K17UYFeHNEE=
