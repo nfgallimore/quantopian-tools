@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Quantopian API project.
+A collection of functions for automating actions on the Quantopian platform.
 """
 from __future__ import print_function, absolute_import, division, unicode_literals
 

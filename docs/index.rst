@@ -1,10 +1,18 @@
 Quantopian API Documentation
 ============================
 
+
+    This project is not supported nor endorsed by `Quantopain <https://www.quantopian.com>`__.
+
+
 |build| |docs| |pypi| |downloads| |github_release| |requirements| |coverage| |issues| |license|
 
-THIS IS ALPHA STATUS CODE AND IS NOT PRODUCTION READY.
-------------------------------------------------------
+
+--------------
+
+This project is alpha and is actively being developed.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Installation
 ------------
@@ -23,42 +31,36 @@ Or to manually install, execute the following commands:
     cd quantopian-api/
     python setup.py install
 
+--------------
+
 
 Usage
 -----
 
-.. code:: python
-
-    # Insert demo code here
-
-
-Scripts
--------
-
-<script_name>
-~~~~~~~~~~~~~
-
-.. code:: bash
-
-    # Insert usage text here
-
-
 For full API usage documentation, refer to the `API <api.html>`__
 
-v0.0.1 - TBD
-~~~~~~~~~~~~
+--------------
 
--  Initial release
 
-|
-|
+Changelog
+---------
+
+v0.0.1a0 - 08/05/2016
+^^^^^^^^^^^^^^^^^^^^^
+
+-  Initial pre-release
+
+--------------
+
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+--------------
 
 
 Site Map

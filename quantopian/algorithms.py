@@ -3,10 +3,10 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 
 import re
 
-from . import schema
-from .exceptions import RequestError, ResponseValidationError
-from .helpers import build_url
-from .session import browser
+from quantopian import schema
+from quantopian.exceptions import RequestError, ResponseValidationError
+from quantopian.helpers import build_url
+from quantopian.session import browser
 
 
 def get_algorithm_ids():
@@ -107,14 +107,7 @@ def validate_algorithm(algorithm, start_date=None, end_date=None, data_frequency
     valid, data_or_errors = schema.validate(response.json(), {
         "data": schema.dictionary(required=True, schema={
             "test_results": schema.list_(required=True, schema=schema.dictionary(schema={
-                # "errorcode": schema.integer(required=True, nullable=True),
-                # "name": schema.string(required=True, nullable=True),
-                "passed": schema.boolean(required=True, nullable=False),
-                # "offset": None,
-                # "trace": schema.string(required=True, nullable=True),
-                # "line": schema.integer(required=True, nullable=True),
-                # "extra": schema.dictionary(required=True, nullable=True),
-                # "type": schema.string(required=True, nullable=True)
+                "passed": schema.boolean(required=True, nullable=False)
             }))
         })
     }, allow_unknown=True)

@@ -7,22 +7,26 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 import json
 
 
-class RequestError(Exception):
-    def __init__(self, message, response):
-        Exception.__init__(self, message)
+class QuantopianException(BaseException):
+    pass
 
+
+class RequestError(QuantopianException):
+    def __init__(self, message, response):
+        super(RequestError, self).__init__(self, message)
         self.response = response
 
     def __str__(self):
         return "%d Error: %s" % (self.response.status_code, Exception.__str__(self))
 
 
-class ResponseValidationError(Exception):
+class ResponseValidationError(QuantopianException):
     def __init__(self, method, url, body, errors):
         self.method = method
         self.url = url
         self.body = body
         self.errors = errors
+        super(ResponseValidationError, self).__init__(str(self))
 
     def __str__(self):
         return "{} {}\nbody={}\nerrors={}".format(self.method,
@@ -31,11 +35,12 @@ class ResponseValidationError(Exception):
                                                   json.dumps(self.errors, sort_keys=True, indent=4))
 
 
-class SchemaValidationError(Exception):
+class SchemaValidationError(QuantopianException):
     def __init__(self, data, schema, errors):
         self.data = data
         self.schema = schema
         self.errors = errors
+        super(SchemaValidationError, self).__init__(str(self))
 
     def __str__(self):
         return "\ndata={}\nschema={}\nerrors={}".format(json.dumps(self.data, sort_keys=True, indent=4),
@@ -43,9 +48,9 @@ class SchemaValidationError(Exception):
                                                         json.dumps(self.errors, sort_keys=True, indent=4))
 
 
-class AlreadyLoggedIn(Exception):
+class AlreadyLoggedIn(QuantopianException):
     pass
 
 
-class NotLoggedIn(Exception):
+class NotLoggedIn(QuantopianException):
     pass

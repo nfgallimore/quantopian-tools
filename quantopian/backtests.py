@@ -4,13 +4,12 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 import json
 from contextlib import closing
 
-import attrdict
 import websocket
 
-from . import schema
-from .exceptions import RequestError, ResponseValidationError
-from .helpers import build_url
-from .session import browser
+from quantopian import schema
+from quantopian.exceptions import RequestError, ResponseValidationError, QuantopianException
+from quantopian.helpers import build_url
+from quantopian.session import browser
 
 
 def log_payload_schema():
@@ -75,6 +74,31 @@ def performance_payload_schema():
     }
 
 
+def risk_report_payload_schema():
+    return {
+        'metrics': schema.dictionary(
+            required=True,
+            nullable=False,
+            schema={
+                'information': schema.dictionary(required=True, nullable=False),
+                'algorithm_period_return': schema.dictionary(required=True, nullable=False),
+                'max_drawdown': schema.dictionary(required=True, nullable=False),
+                'sortino': schema.dictionary(required=True, nullable=False),
+                'algo_volatility': schema.dictionary(required=True, nullable=False),
+                'trading_days': schema.dictionary(required=True, nullable=False),
+                'max_leverage': schema.dictionary(required=True, nullable=False),
+                'benchmark_volatility': schema.dictionary(required=True, nullable=False),
+                'beta': schema.dictionary(required=True, nullable=False),
+                'excess_return': schema.dictionary(required=True, nullable=False),
+                'treasury_period_return': schema.dictionary(required=True, nullable=False),
+                'sharpe': schema.dictionary(required=True, nullable=False),
+                'alpha': schema.dictionary(required=True, nullable=False),
+                'benchmark_period_return': schema.dictionary(required=True, nullable=False)
+            }
+        )
+    }
+
+
 def stack_schema():
     return {
         'lineno': schema.integer(required=True, nullable=True, min=0),
@@ -83,9 +107,17 @@ def stack_schema():
         'filename': schema.string(required=True, nullable=True, empty=True)
     }
 
+
+def done_payload_schema():
+    return {
+        'completed_at': schema.datetime_(required=True, nullable=False, coerce='millis_timestamp'),
+        'reason': schema.string(required=True, nullable=False)
+    }
+
+
 def exception_payload_schema():
     return {
-        'date': schema.datetime_(required=True, nullable=False, min=0, rename='timestamp', coerce='millis_timestamp'),
+        'date': schema.datetime_(required=True, nullable=False, rename='timestamp', coerce='millis_timestamp'),
         'message': schema.string(required=True, nullable=False),
         'name': schema.string(required=True, nullable=False),
         'stack': schema.list_(required=True, nullable=False, schema=stack_schema())
@@ -135,25 +167,24 @@ def run_backtest(algorithm, start_date, end_date, capital_base, data_frequency='
         while True:
             msg = json.loads(ws.recv())
             if msg['e'] == 'log':
-                yield attrdict.AttrDict(schema.validate(msg['p'], log_payload_schema(), raise_exc=True))
+                yield schema.validate(msg['p'], log_payload_schema(), raise_exc=True)
 
             elif msg['e'] == 'performance':
-                yield attrdict.AttrDict(schema.validate(msg['p'], performance_payload_schema(), raise_exc=True))
+                yield schema.validate(msg['p'], performance_payload_schema(), raise_exc=True)
 
             elif msg['e'] == 'risk_report':
-                yield msg['p']
+                yield schema.validate(msg['p'], risk_report_payload_schema(), raise_exc=True)
 
             elif msg['e'] == 'done':
-                yield msg['p']
+                yield schema.validate(msg['p'], done_payload_schema(), raise_exc=True)
                 break
 
             elif msg['e'] == 'exception':
                 exc = schema.validate(msg['p'], exception_payload_schema(), raise_exc=True)
-                trace = '\n'.join('  File "{}", line {}, in {}\n    {}'.format(s['filename'], s['lineno'], s['method'],
-                                                                               s['line'])
+                trace = '\n'.join("  File \"{}\", line {}, in {}\n    {}"
+                                  "".format(s['filename'], s['lineno'], s['method'], s['line'])
                                   for s in exc['stack'])
-                raise RuntimeError("Traceback (most recent call last):\n{}\n{}: {}".format(trace, exc['name'],
-                                                                                           exc['message']))
-
+                raise RuntimeError("Traceback (most recent call last):\n{}\n{}: {}"
+                                   "".format(trace, exc['name'], exc['message']))
             else:
-                raise Exception("unknown event '{}'".format(msg['e']))
+                raise QuantopianException("unknown backtest event '{}'".format(msg['e']))

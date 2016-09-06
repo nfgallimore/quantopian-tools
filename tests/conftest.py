@@ -11,6 +11,7 @@ from quantopian import session, settings
 def unauthenticated_browser():
     if session.browser.is_authenticated:
         assert session.browser.logout()
+    return session.browser
 
 
 @pytest.fixture
@@ -19,6 +20,7 @@ def authenticated_browser():
     assert settings.QUANTOPIAN_PWD
     if not session.browser.is_authenticated:
         assert session.browser.login()  # Environment vars contain email and password
+    return session.browser
 
 
 @pytest.fixture

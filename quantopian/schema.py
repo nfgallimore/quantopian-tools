@@ -1,25 +1,15 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function, absolute_import, division, unicode_literals
+
 import datetime
 
 import cerberus
 import six
 
-from .exceptions import SchemaValidationError
+from quantopian.exceptions import SchemaValidationError
 
 
 def validate(data, schema, raise_exc=False, **kwargs):
-    """
-
-    :param data:
-    :type data:
-    :param schema:
-    :type schema:
-    :param raise_exc:
-    :type raise_exc:
-    :param kwargs:
-    :type kwargs:
-    :return:
-    :rtype: bool, dict
-    """
     validator = CustomValidator(schema, **kwargs)
     if not validator.validate(data):
         if raise_exc:
@@ -31,7 +21,6 @@ def validate(data, schema, raise_exc=False, **kwargs):
 
 
 class CustomValidator(cerberus.Validator):
-    # Custom coerce functions
     def _normalize_rename_handler(self, mapping, schema, field):
         """ {'oneof': [
                 {'type': 'callable'},
@@ -47,6 +36,7 @@ class CustomValidator(cerberus.Validator):
             field = new_field
         super(CustomValidator, self)._normalize_rename_handler(mapping, schema, field)
 
+    # Custom coerce functions
     def _normalize_coerce_millis_timestamp(self, value):
         if value is None:
             return None
@@ -71,8 +61,8 @@ class CustomValidator(cerberus.Validator):
         elif isinstance(value, six.integer_types + six.string_types + (float,)):
             try:
                 return int(value)
-            except Exception as e:
-                raise ValueError(str(e))
+            except Exception as ex:
+                raise ValueError(str(ex))
         raise ValueError("cannot coerce type {} to an int".format(type(value).__name__))
 
     def _normalize_coerce_number(self, value):
@@ -86,8 +76,8 @@ class CustomValidator(cerberus.Validator):
                     return int(value)
                 except ValueError:
                     return float(value)
-            except Exception as e:
-                raise ValueError(str(e))
+            except Exception as ex:
+                raise ValueError(str(ex))
         raise ValueError("cannot coerce type {} to a number".format(type(value).__name__))
 
     def _normalize_coerce_bool(self, value):
