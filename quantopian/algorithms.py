@@ -3,14 +3,13 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 
 import re
 
-from quantopian import schema
+from quantopian import schema, session
 from quantopian.exceptions import RequestError, ResponseValidationError
 from quantopian.helpers import build_url
-from quantopian.session import browser
 
 
 def get_algorithm_ids():
-    response = browser.get(build_url('algorithms'))
+    response = session.browser.get(build_url('algorithms'))
     if not response.ok:
         raise RequestError('failed to get algorithm ids', response)
 
@@ -19,7 +18,7 @@ def get_algorithm_ids():
 
 
 def get_algorithm(algorithm_id):
-    response = browser.get(build_url('algorithms', algorithm_id))
+    response = session.browser.get(build_url('algorithms', algorithm_id))
     if not response.ok:
         raise RequestError('failed to get algorithm %s' % algorithm_id, response)
 
@@ -39,10 +38,10 @@ def get_algorithm(algorithm_id):
 def save_algorithm(algorithm):
     url = build_url('algorithms', algorithm['id'], 'autosave')
     headers = {
-        'x-csrf-token': browser.get_csrf_token(build_url('algorithms', algorithm['id'])),
+        'x-csrf-token': session.browser.get_csrf_token(build_url('algorithms', algorithm['id'])),
         'x-requested-with': 'XMLHttpRequest'
     }
-    response = browser.post(url, data=algorithm, headers=headers)
+    response = session.browser.post(url, data=algorithm, headers=headers)
     if not response.ok:
         raise RequestError('failed to save algorithm %s' % algorithm['id'], response)
 
@@ -58,11 +57,11 @@ def save_algorithm(algorithm):
 def new_algorithm(title):
     url = build_url('algorithms')
     headers = {
-        'x-csrf-token': browser.get_csrf_token(build_url('algorithms')),
+        'x-csrf-token': session.browser.get_csrf_token(build_url('algorithms')),
         'x-requested-with': 'XMLHttpRequest'
     }
     data = {'title': title}
-    response = browser.post(url, data=data, headers=headers)
+    response = session.browser.post(url, data=data, headers=headers)
     if not response.ok:
         raise RequestError('failed to create a new algorithm', response)
 
@@ -78,16 +77,16 @@ def new_algorithm(title):
 def delete_algorithm(algorithm):
     url = build_url('algorithms', 'delete')
     headers = {
-        'x-csrf-token': browser.get_csrf_token(build_url('algorithms')),
+        'x-csrf-token': session.browser.get_csrf_token(build_url('algorithms')),
         'x-requested-with': 'XMLHttpRequest'
     }
     data = {'ids[]': algorithm['id']}
-    response = browser.post(url, data=data, headers=headers)
+    response = session.browser.post(url, data=data, headers=headers)
     return response.ok
 
 
 def validate_algorithm(algorithm, start_date=None, end_date=None, data_frequency='minute'):
-    assert browser.is_authenticated, "You must be authenticated to validate algorithms"
+    assert session.browser.is_authenticated, "You must be authenticated to validate algorithms"
     url = build_url('algorithms', algorithm['id'], 'validate')
     data = {
         'code': algorithm['code'],
@@ -97,10 +96,10 @@ def validate_algorithm(algorithm, start_date=None, end_date=None, data_frequency
         'end_date_str': end_date.strftime('%m/%d/%Y')
     }
     headers = {
-        'x-csrf-token': browser.get_csrf_token(build_url('algorithms', algorithm['id'])),
+        'x-csrf-token': session.browser.get_csrf_token(build_url('algorithms', algorithm['id'])),
         'x-requested-with': 'XMLHttpRequest'
     }
-    response = browser.post(url, data=data, headers=headers)
+    response = session.browser.post(url, data=data, headers=headers)
     if not response.ok:
         raise RequestError('validate algorithm request failed', response)
 

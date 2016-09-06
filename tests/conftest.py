@@ -7,20 +7,26 @@ import pytest
 
 from quantopian import session, settings
 
-@pytest.fixture
-def unauthenticated_browser():
-    if session.browser.is_authenticated:
-        assert session.browser.logout()
-    return session.browser
+_authenticated_browser = session.QBrowser()
+_unauthenticated_browser = session.QBrowser()
 
 
 @pytest.fixture
-def authenticated_browser():
-    assert settings.QUANTOPIAN_EMAIL
-    assert settings.QUANTOPIAN_PWD
-    if not session.browser.is_authenticated:
-        assert session.browser.login()  # Environment vars contain email and password
-    return session.browser
+def unauthenticated_browser(monkeypatch):
+    if _unauthenticated_browser.is_authenticated:
+        assert _unauthenticated_browser.logout()
+    monkeypatch.setattr('quantopian.session.browser', _unauthenticated_browser)
+    return _unauthenticated_browser
+
+
+@pytest.fixture
+def authenticated_browser(monkeypatch):
+    if not _authenticated_browser.is_authenticated:
+        assert settings.QUANTOPIAN_EMAIL
+        assert settings.QUANTOPIAN_PWD
+        assert _authenticated_browser.login()  # Environment vars contain email and password
+    monkeypatch.setattr('quantopian.session.browser', _authenticated_browser)
+    return _authenticated_browser
 
 
 @pytest.fixture

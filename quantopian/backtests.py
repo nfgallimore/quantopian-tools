@@ -6,10 +6,9 @@ from contextlib import closing
 
 import websocket
 
-from quantopian import schema
+from quantopian import schema, session
 from quantopian.exceptions import RequestError, ResponseValidationError, QuantopianException
 from quantopian.helpers import build_url
-from quantopian.session import browser
 
 
 def log_payload_schema():
@@ -127,7 +126,7 @@ def exception_payload_schema():
 def run_backtest(algorithm, start_date, end_date, capital_base, data_frequency='minute'):
     url = build_url('backtests', 'start_ide_backtest')
     headers = {
-        'x-csrf-token': browser.get_csrf_token(build_url('algorithms', algorithm['id'])),
+        'x-csrf-token': session.browser.get_csrf_token(build_url('algorithms', algorithm['id'])),
         'x-requested-with': 'XMLHttpRequest'
     }
     data = {
@@ -142,7 +141,7 @@ def run_backtest(algorithm, start_date, end_date, capital_base, data_frequency='
         'backtest_capital_base': capital_base,
         'backtest_data_frequency_value': data_frequency
     }
-    response = browser.post(url, data=data, headers=headers)
+    response = session.browser.post(url, data=data, headers=headers)
     if not response.ok:
         raise RequestError('failed to start backtest', response)
 

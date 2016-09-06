@@ -2,6 +2,7 @@
 """
 Settings for the project. All settings can be configured in the environment.
 """
+from __future__ import print_function, absolute_import, division, unicode_literals
 
 import os
 

@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, absolute_import, division, unicode_literals
 
-from quantopian import schema
+from quantopian import schema, session
 from quantopian.exceptions import RequestError, ResponseValidationError
 from quantopian.helpers import build_url
-from quantopian.session import browser
 
 
 def lookup_sid(sid):
@@ -24,10 +23,10 @@ def lookup_sid(sid):
     """
     url = build_url('securities/', q=sid)
     headers = {
-        'x-csrf-token': browser.get_csrf_token(build_url('algorithms')),
+        'x-csrf-token': session.browser.get_csrf_token(build_url('algorithms')),
         'x-requested-with': 'XMLHttpRequest'
     }
-    response = browser.get(url, headers=headers)
+    response = session.browser.get(url, headers=headers)
     if not response.ok:
         raise RequestError('failed to lookup sid %d' % sid, response)
 
