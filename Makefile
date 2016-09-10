@@ -13,7 +13,7 @@ endif
 ifeq ($(VIRTUAL_ENV)$(CONDA_DEFAULT_ENV),)
 $(error must run in a virtualenv)
 else
-$(info running in virtualenv $(VIRTUAL_ENV)$(CONDA_ENV_PATH))
+$(info running in virtualenv $(VIRTUAL_ENV)$(CONDA_DEFAULT_ENV))
 endif
 
 # find project python source dirs

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Quantopian API documentation build configuration file, created by
+# Quantopian Tools documentation build configuration file, created by
 # sphinx-quickstart on Mon May 30 14:46:42 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -12,7 +12,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-package_name = "quantopian"
+package_name = "quantopian_tools"
 
 import os
 import sys
@@ -35,7 +35,7 @@ def get_all_modules(path, level=""):
         modules.append(level + "." + name if level else name)
         if ispkg:
             modules.extend(get_all_modules(os.path.join(path, name), modules[-1]))
-    if not level:
+    if level == package_name:
         modules.append(os.path.basename(path))
     return modules
 
@@ -65,7 +65,7 @@ sys.path.insert(0, basedir)
 package = importlib.import_module(package_name)
 
 # Create the api.rst file so we do not have to manually update it every time we change our package
-modules = {module: [] for module in get_all_modules(os.path.join(basedir, package_name))}
+modules = {module: [] for module in get_all_modules(os.path.join(basedir, package_name), level=package_name)}
 modules[package_name].append("__pkg_name__")
 modules[package_name].append("__version__")
 modules[package_name].append("__release_date__")

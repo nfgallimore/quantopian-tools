@@ -1,0 +1,6 @@
+cerberus>=1.0.1
+click
+MechanicalSoup
+requests
+six
+websocket-client
