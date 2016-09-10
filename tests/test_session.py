@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, absolute_import, division, unicode_literals
 
-from quantopian import session
+from quantopian_tools import session
 
 
 def test_login_success():

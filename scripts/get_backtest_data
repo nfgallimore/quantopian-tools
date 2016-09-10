@@ -9,9 +9,9 @@ from contextlib import contextmanager
 import click
 import six
 
-from quantopian.algorithms import new_algorithm, save_algorithm, delete_algorithm
-from quantopian.backtests import run_backtest
-from quantopian.securities import lookup_sid
+from quantopian_tools.algorithms import new_algorithm, save_algorithm, delete_algorithm
+from quantopian_tools.backtests import run_backtest
+from quantopian_tools.securities import lookup_sid
 
 WIDTH = 80
 

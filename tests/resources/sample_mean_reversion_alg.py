@@ -50,7 +50,7 @@ def make_pipeline(context):
     A function to create our pipeline (dynamic stock selector). The pipeline is used
     to rank stocks based on different factors, including builtin factors, or custom
     factors that you can define. Documentation on pipeline can be found here:
-    https://www.quantopian.com/help#pipeline-title
+    https://www.quantopian_tools.com/help#pipeline-title
     """
     # Create a pipeline object.
 

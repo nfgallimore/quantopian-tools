@@ -9,9 +9,9 @@ import logging
 import mechanicalsoup
 import requests
 
-from quantopian import settings
-from quantopian.exceptions import AlreadyLoggedIn, NotLoggedIn, RequestError
-from quantopian.helpers import build_url
+from quantopian_tools import settings
+from quantopian_tools.exceptions import AlreadyLoggedIn, NotLoggedIn, RequestError
+from quantopian_tools.helpers import build_url
 
 log = logging.getLogger(__name__)
 

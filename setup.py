@@ -15,7 +15,7 @@ def read(*names):
 
 
 special_members = {}
-for line in ast.parse(read('quantopian', '__init__.py')).body:
+for line in ast.parse(read('quantopian_tools', '__init__.py')).body:
     if (not isinstance(line, ast.Assign) or len(line.targets) != 1 or
             not isinstance(line.targets[0], ast.Name) or
             not re.match(r'__.*?__', line.targets[0].id) or
@@ -45,7 +45,6 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',

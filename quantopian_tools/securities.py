@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, absolute_import, division, unicode_literals
 
-from quantopian import schema, session
-from quantopian.exceptions import RequestError, ResponseValidationError
-from quantopian.helpers import build_url
+from quantopian_tools import schema, session
+from quantopian_tools.exceptions import RequestError, ResponseValidationError
+from quantopian_tools.helpers import build_url
 
 
 def lookup_sid(sid):
@@ -17,9 +17,9 @@ def lookup_sid(sid):
     :type sid: int
     :return: A dictionary containing the security's name, sid, and symbol or ``None`` if no security is found.
     :rtype: dict
-    :raises quantopian.exceptions.RequestError: If the request to the quantopian server failed.
-    :raises quantopian.exceptions.ResponseValidationError: If the response from the quantopian server is not of the
-     format expected.
+    :raises quantopian_tools.exceptions.RequestError: If the request to the quantopian_tools server failed.
+    :raises quantopian_tools.exceptions.ResponseValidationError: If the response from the quantopian_tools server is not
+     of the format expected.
     """
     url = build_url('securities/', q=sid)
     headers = {

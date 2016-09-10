@@ -1,16 +1,16 @@
-# Quantopian API
+# Quantopian Tools
 
 > This project is not supported nor endorsed by [Quantopain](https://www.quantopian.com).
 
-[![Build Status](https://img.shields.io/travis/Gitlitio/quantopian-api.svg)](https://travis-ci.org/Gitlitio/quantopian-api)
-[![Docs Status](https://readthedocs.org/projects/quantopian-api/badge/?version=latest)](http://quantopian-api.readthedocs.io/en/latest/?badge=latest)
-[![PyPi Version](https://img.shields.io/pypi/v/quantopian.svg)](https://pypi.python.org/pypi/quantopian/)
-[![Downloads](https://img.shields.io/pypi/dm/quantopian.svg)](https://pypi.python.org/pypi/quantopian/)
-[![GitHub release](https://img.shields.io/github/release/Gitlitio/quantopian-api.svg)](https://github.com/Gitlitio/quantopian-api/releases)
-[![Requires.io](https://img.shields.io/requires/github/Gitlitio/quantopian-api.svg)](https://requires.io/github/Gitlitio/quantopian-api/requirements/?branch=master)
-[![Codecov](https://img.shields.io/codecov/c/github/Gitlitio/quantopian-api.svg)](https://codecov.io/gh/Gitlitio/quantopian-api)
-[![GitHub issues](https://img.shields.io/github/issues/Gitlitio/quantopian-api.svg)](https://github.com/Gitlitio/quantopian-api/issues)
-[![license](https://img.shields.io/github/license/Gitlitio/quantopian-api.svg)](https://github.com/Gitlitio/quantopian-api/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/Gitlitio/quantopian-tools.svg)](https://travis-ci.org/Gitlitio/quantopian-tools)
+[![Docs Status](https://readthedocs.org/projects/quantopian-tools/badge/?version=latest)](http://quantopian-tools.readthedocs.io/en/latest/)
+[![PyPi Version](https://img.shields.io/pypi/v/quantopian-tools.svg)](https://pypi.python.org/pypi/quantopian-tools/)
+[![Downloads](https://img.shields.io/pypi/dm/quantopian-tools.svg)](https://pypi.python.org/pypi/quantopian-tools/)
+[![GitHub release](https://img.shields.io/github/release/Gitlitio/quantopian-tools.svg)](https://github.com/Gitlitio/quantopian-tools/releases)
+[![Requires.io](https://img.shields.io/requires/github/Gitlitio/quantopian-tools.svg)](https://requires.io/github/Gitlitio/quantopian-tools/requirements/?branch=master)
+[![Codecov](https://img.shields.io/codecov/c/github/Gitlitio/quantopian-tools.svg)](https://codecov.io/gh/Gitlitio/quantopian-tools)
+[![GitHub issues](https://img.shields.io/github/issues/Gitlitio/quantopian-tools.svg)](https://github.com/Gitlitio/quantopian-tools/issues)
+[![license](https://img.shields.io/github/license/Gitlitio/quantopian-tools.svg)](https://github.com/Gitlitio/quantopian-tools/blob/master/LICENSE)
 
 
 ***
@@ -25,32 +25,24 @@ A collection of functions for automating actions on the Quantopian trading platf
 ## Installation
 
 ```bash
-pip install quantopian
+pip install quantopian-tools
 ```
 
 Or to manually install, execute the following commands:
 
 ```bash
-git clone https://github.com/Gitlitio/quantopian-api.git
-cd quantopian-api
+git clone https://github.com/Gitlitio/quantopian-tools.git
+cd quantopian-tools
 python setup.py install
 ```
 ***
 
-
 ## Documentation
 
-Check out our documentation on [readthedocs](http://quantopian-api.readthedocs.io/en/latest/).
+Check out our documentation on [readthedocs](http://quantopian-tools.readthedocs.io/en/latest/).
 
 
-## Changelog
-
-### v0.0.1a0 - 08/05/2016
-
-  *  Initial pre-release
-
-
-## Developers
+## Development
 
 ### Makefile Targets
 

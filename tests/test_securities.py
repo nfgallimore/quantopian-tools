@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, absolute_import, division, unicode_literals
 
-from quantopian import securities
+from quantopian_tools import securities
 
 
 def test_lookup_sid():

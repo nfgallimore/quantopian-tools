@@ -6,7 +6,7 @@ import datetime
 import cerberus
 import six
 
-from quantopian.exceptions import SchemaValidationError
+from quantopian_tools.exceptions import SchemaValidationError
 
 
 def validate(data, schema, raise_exc=False, **kwargs):

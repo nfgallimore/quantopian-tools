@@ -1,25 +1,26 @@
 language: python
 python:
-- 2.7
-- 3.3
-- 3.4
-- 3.5
+  - 2.7
+  - 3.3
+  - 3.4
+  - 3.5
 env:
   matrix:
     secure: VvAuNfjXW8QFh4Bl+olkDlDf/818CEdMePzAxnJN5Y6mGR4X+At1oBIDBp4w1kvQfATXXLL7oJn/QrTWEsVx1u6b+gEeBWnYxw5tgS266zDrBsldc5Ynqt06BReowg8ABJI7JPHFTaGx9ZzAFCrsEEqiJZz3rTnSLgNBjmpQiohMasDbRBC6LTQcLP74KrEkOWfVCV9Bw7atNoYFgXumHPx+Z3bs88uOWlxc7+U1Bzl2KDX2IQcmfsexkOWtXeLL1QbbXlzjQ8FmQwSspj8etWyQN++8rGYX0AEsK/WFSWPIT6KMAVN9SzQcbHhqYYLRtyPWa5u5afwQWd2awhWyl/SLtO8JjYhClRK+3tlVhpo/TOvMiYs3IQ4iWd+bUk+RrTPWGqHWRUB756dP0fnBfVAM4awzT6tU7XOpUA0hacWT7cPaKaKS3F6U4M91BmQMNoPbmuoGNfwtg1jcIOg+BzSTawGxVR3IUmUKzIWnWlyCTmN7hxCirdIac2WTVFmSoZNNyFHF8Eo1vVhmV1CECgsUP8r48AoCUZb3CqBGh2ibMgdNfMFBgvYt/cPTe31inO1xEAbL4/oCKCGXJvpT6Wf13Dc01unrd11VCL2ZnUg9GYCvOlCFKepr++yyI0cnipb5cbHjsCLtSoC6gg8cUlXh1IZ6tZoc5afZ8Vckc8E=
 install:
-- make clean
-- make init
-- make install
-- pip install codecov
+  - make clean
+  - make init
+  - make install
+  - pip install codecov
 script:
-- make lint
-#- make test
-- make build
-- make docs
-cache: pip
+  - make lint
+  #- make test
+  - make build
+  - make docs
+cache:
+  pip: true
 after_success:
-- codecov --required --file tests/reports/coverage.xml
+  - codecov --required --file tests/reports/coverage.xml
 deploy:
   provider: pypi
   user: gitlitio
@@ -29,7 +30,7 @@ deploy:
     python: 2.7
     tags: true
     distributions: sdist bdist_wheel
-    repo: Gitlitio/quantopian-api
+    repo: Gitlitio/quantopian-tools
 notifications:
   slack:
     secure: diHmMXE6OM8QH0l8NLSCac2B3tu/XKD8O+1kt3qTIEFiP5dr+jQnt3e5jqshC4xK7AweteKj2YhYorAFO+dTlldBCCK6w/Vt2xukp0unIIl2TlrBFHwwPYW6rQfKDQGEGpp94T+7bXQzv7+t4qquJpU5NS44CDbHOXaf3Vd1HZE7kLwg/lObdZKasIphQ/lV6Rwyc5B7TGPpbAEDjiUXtQQXpHodP57upKjyiOx/7IuFuGwBofUc0CAaXQHQgqiHXkNfCza5uKrt3HF8smpn7WuKhNG7xdrXmsntXNH+ksAtZhth7m0ThDH/DJbrB92yBPTvzy2M7ILZSG+rSR1PmdA4UNFd/orVQdHmDxCLHj6Ile97mriIIaGsXdWlr8qOZGO6g/DdxYp/gQYb3y3WoFyUIVbE9dXqf23rUm4HFxx/iS/0T0lQBNEyf7Y3sXvskj6WwEjEwqH/UNQBq1hJXNsTkEurNWrJ+unccOKpfEH82gc8kTOPdr6Px8D+OW+BWiFUG8McGXHYskhmyQI3eQlU/hxRZHB45pBxiosmksrSj8KE5klLuyqGh0f1FHpVYDjgq0eWVht1/Y80V/Q3YwuL1J80OK0zoED2GtIPdCdUAfs+0xvBE3WzJoVq9piSxsomf5nbFyNeIHryx94XchoeHuRgW/U2K17UYFeHNEE=

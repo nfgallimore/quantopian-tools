@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Quantopian API documentation build configuration file, created by
+# Quantopian Tools documentation build configuration file, created by
 # sphinx-quickstart on Mon May 30 14:46:42 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -12,7 +12,7 @@
 #
 # All configuration values have a default; values that are commented out
 # serve to show the default.
-package_name = "quantopian"
+package_name = "quantopian_tools"
 
 import os
 import sys

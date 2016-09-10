@@ -3,7 +3,7 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 
 from requests.compat import urlencode
 
-from quantopian import settings
+from quantopian_tools import settings
 
 
 def build_url(*parts, **query):

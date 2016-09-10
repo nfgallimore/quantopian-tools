@@ -3,9 +3,9 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 
 import re
 
-from quantopian import schema, session
-from quantopian.exceptions import RequestError, ResponseValidationError
-from quantopian.helpers import build_url
+from quantopian_tools import schema, session
+from quantopian_tools.exceptions import RequestError, ResponseValidationError
+from quantopian_tools.helpers import build_url
 
 
 def get_algorithm_ids():

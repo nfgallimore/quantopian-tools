@@ -3,7 +3,7 @@ from __future__ import print_function, absolute_import, division, unicode_litera
 
 import datetime
 
-from quantopian import algorithms, backtests
+from quantopian_tools import algorithms, backtests
 
 
 def test_run_backtest(unauthenticated_browser, sample_mean_reversion_alg_code):

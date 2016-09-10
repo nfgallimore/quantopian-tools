@@ -92,9 +92,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/QuantopianAPI.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/QuantopianTools.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/QuantopianAPI.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/QuantopianTools.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -112,7 +112,7 @@ devhelp:
 	@echo "Build finished."
 	@echo "To view the help file:"
 	@echo "# mkdir -p $$HOME/.local/share/devhelp/QuantopianAPI"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/QuantopianAPI"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/QuantopianTools"
 	@echo "# devhelp"
 
 .PHONY: epub

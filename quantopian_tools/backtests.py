@@ -6,9 +6,9 @@ from contextlib import closing
 
 import websocket
 
-from quantopian import schema, session
-from quantopian.exceptions import RequestError, ResponseValidationError, QuantopianException
-from quantopian.helpers import build_url
+from quantopian_tools import schema, session
+from quantopian_tools.exceptions import RequestError, ResponseValidationError, QuantopianException
+from quantopian_tools.helpers import build_url
 
 
 def log_payload_schema():

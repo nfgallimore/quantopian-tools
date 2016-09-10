@@ -5,7 +5,7 @@ import os
 
 import pytest
 
-from quantopian import session, settings
+from quantopian_tools import session, settings
 
 _authenticated_browser = session.QBrowser()
 _unauthenticated_browser = session.QBrowser()
@@ -15,7 +15,7 @@ _unauthenticated_browser = session.QBrowser()
 def unauthenticated_browser(monkeypatch):
     if _unauthenticated_browser.is_authenticated:
         assert _unauthenticated_browser.logout()
-    monkeypatch.setattr('quantopian.session.browser', _unauthenticated_browser)
+    monkeypatch.setattr('quantopian_tools.session.browser', _unauthenticated_browser)
     return _unauthenticated_browser
 
 
@@ -25,7 +25,7 @@ def authenticated_browser(monkeypatch):
         assert settings.QUANTOPIAN_EMAIL
         assert settings.QUANTOPIAN_PWD
         assert _authenticated_browser.login()  # Environment vars contain email and password
-    monkeypatch.setattr('quantopian.session.browser', _authenticated_browser)
+    monkeypatch.setattr('quantopian_tools.session.browser', _authenticated_browser)
     return _authenticated_browser
 
 
